@@ -42,3 +42,8 @@ buttons.forEach(btn => {
   })
 });
 
+let acBtn = document.querySelector("#btn-ac");
+console.log(acBtn);
+acBtn.addEventListener("click", () => {
+  input.value = "";
+})
