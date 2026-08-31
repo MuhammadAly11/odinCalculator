@@ -38,7 +38,8 @@ console.log(buttons);
 buttons.forEach(btn => {
   if (mods.includes(btn.textContent)) return;
   btn.addEventListener("click", () => {
-    input.value += " " + btn.textContent;
+    if (!Number.isInteger(+btn.textContent)) input.value += " " + btn.textContent + " ";
+    else input.value += btn.textContent;
   })
 });
 
