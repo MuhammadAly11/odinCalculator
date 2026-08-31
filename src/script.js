@@ -1,3 +1,9 @@
+let lNum;
+let rNum;
+let operator;
+const input = document.querySelector('input[name="in"]');
+const mods = ["=", "AC"];
+
 function add(a, b) {
   return a + b;
 }
@@ -27,11 +33,12 @@ function operate(operator, a, b) {
   }
 }
 
-function test() {
-  console.log(operate("+", 4, 2));
-  console.log(operate("-", 4, 2));
-  console.log(operate("*", 4, 2));
-  console.log(operate("/", 4, 2));
-}
+let buttons = document.querySelectorAll("button");
+console.log(buttons);
+buttons.forEach(btn => {
+  if (mods.includes(btn.textContent)) return;
+  btn.addEventListener("click", () => {
+    input.value += " " + btn.textContent;
+  })
+});
 
-test();
