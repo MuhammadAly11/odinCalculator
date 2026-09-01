@@ -50,8 +50,21 @@ buttons.forEach(btn => {
 
 let acBtn = document.querySelector("#btn-ac");
 acBtn.addEventListener("click", () => {
+  clear();
+  updateDisplay();;
+})
+
+function clear() {
   lNum = "";
   rNum = "";
   operator = "";
-  updateDisplay();;
+}
+
+let equalBtn = document.querySelector("#btn-equal");
+equalBtn.addEventListener("click", () => {
+  let res = operate(operator, +lNum, +rNum)
+  clear();
+  lNum = res;
+  updateDisplay();
 })
+
