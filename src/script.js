@@ -37,11 +37,27 @@ function updateDisplay() {
   input.value = `${g_lNum} ${g_operator} ${g_rNum}`
 }
 
+function evaluate() {
+  let sum = operate(g_operator, +g_lNum, +g_rNum);
+  clear();
+  g_lNum = sum.toString();
+  updateDisplay();
+}
+
+function handelOperator(operator) {
+  if (g_operator === '') {
+    g_operator = operator;
+  } else {
+    evaluate();
+    g_operator = operator;
+  }
+}
+
 let buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
   if (mods.includes(btn.textContent)) return;
   btn.addEventListener("click", () => {
-    if (!Number.isInteger(+btn.textContent)) operator = btn.textContent;
+    if (!Number.isInteger(+btn.textContent)) handelOperator(btn.textContent);
     else if (g_operator == "") g_lNum += btn.textContent;
     else g_rNum += btn.textContent;
     updateDisplay();;
@@ -62,9 +78,6 @@ function clear() {
 
 let equalBtn = document.querySelector("#btn-equal");
 equalBtn.addEventListener("click", () => {
-  let res = operate(g_operator, +g_lNum, +g_rNum)
-  clear();
-  g_lNum = res;
-  updateDisplay();
+  evaluate();
 })
 
