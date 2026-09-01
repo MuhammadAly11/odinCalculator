@@ -1,6 +1,6 @@
-let lNum = "";
-let rNum = "";
-let operator = "";
+let g_lNum = "";
+let g_rNum = "";
+let g_operator = "";
 const input = document.querySelector('input[name="in"]');
 const mods = ["=", "AC"];
 
@@ -34,7 +34,7 @@ function operate(operator, a, b) {
 }
 
 function updateDisplay() {
-  input.value = `${lNum} ${operator} ${rNum}`
+  input.value = `${g_lNum} ${g_operator} ${g_rNum}`
 }
 
 let buttons = document.querySelectorAll("button");
@@ -42,8 +42,8 @@ buttons.forEach(btn => {
   if (mods.includes(btn.textContent)) return;
   btn.addEventListener("click", () => {
     if (!Number.isInteger(+btn.textContent)) operator = btn.textContent;
-    else if (operator == "") lNum += btn.textContent;
-    else rNum += btn.textContent;
+    else if (g_operator == "") g_lNum += btn.textContent;
+    else g_rNum += btn.textContent;
     updateDisplay();;
   })
 });
@@ -55,16 +55,16 @@ acBtn.addEventListener("click", () => {
 })
 
 function clear() {
-  lNum = "";
-  rNum = "";
-  operator = "";
+  g_lNum = "";
+  g_rNum = "";
+  g_operator = "";
 }
 
 let equalBtn = document.querySelector("#btn-equal");
 equalBtn.addEventListener("click", () => {
-  let res = operate(operator, +lNum, +rNum)
+  let res = operate(g_operator, +g_lNum, +g_rNum)
   clear();
-  lNum = res;
+  g_lNum = res;
   updateDisplay();
 })
 
