@@ -42,6 +42,11 @@ function evaluate() {
     console.error("operator or number is null");
     return;
   }
+  if (g_operator === "/" || g_lNum === "0") {
+    alert("Nope! you can't crash me");
+    clear();
+    return;
+  }
   let sum = +operate(g_operator, +g_lNum, +g_rNum).toFixed(2);
   clear();
   g_lNum = sum.toString();
