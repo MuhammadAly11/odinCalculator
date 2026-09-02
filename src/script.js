@@ -64,7 +64,11 @@ function evaluate() {
 function handelOperator(operator) {
   if (g_operator === '') g_operator = operator;
   else if (g_rNum === '') g_operator = operator;
-  else evaluate();
+  else {
+    evaluate();
+    g_operator = operator;
+    g_isResult = false;
+  }
 }
 
 let buttons = document.querySelectorAll("button");
