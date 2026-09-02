@@ -38,7 +38,7 @@ function updateDisplay() {
 }
 
 function evaluate() {
-  let sum = operate(g_operator, +g_lNum, +g_rNum);
+  let sum = +operate(g_operator, +g_lNum, +g_rNum).toFixed(2);
   clear();
   g_lNum = sum.toString();
   updateDisplay();
