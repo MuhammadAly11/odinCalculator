@@ -38,6 +38,12 @@ function updateDisplay() {
   input.value = `${g_lNum} ${g_operator} ${g_rNum}`
 }
 
+function clear() {
+  g_lNum = "";
+  g_rNum = "";
+  g_operator = "";
+}
+
 function evaluate() {
   if (g_rNum === "" || g_operator === "" || g_lNum === "") {
     console.error("operator or number is null");
@@ -81,12 +87,6 @@ acBtn.addEventListener("click", () => {
   clear();
   updateDisplay();;
 })
-
-function clear() {
-  g_lNum = "";
-  g_rNum = "";
-  g_operator = "";
-}
 
 let equalBtn = document.querySelector("#btn-equal");
 equalBtn.addEventListener("click", () => {
