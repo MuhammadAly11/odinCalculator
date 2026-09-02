@@ -45,12 +45,9 @@ function evaluate() {
 }
 
 function handelOperator(operator) {
-  if (g_operator === '') {
-    g_operator = operator;
-  } else {
-    evaluate();
-    g_operator = operator;
-  }
+  if (g_operator === '') g_operator = operator;
+  else if (g_rNum === '') g_operator = operator;
+  else evaluate();
 }
 
 let buttons = document.querySelectorAll("button");
