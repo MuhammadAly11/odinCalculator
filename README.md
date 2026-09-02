@@ -11,4 +11,4 @@ Final project for TOP foundation course
   - [x] fix console errors when pressing = before all numbers
   - [x] fix errors when entering 2 consecutive operators
   - [x] don't allow / by 0
-  - [ ] entering a new number should clear result if present
+  - [x] entering a new number should clear result if present

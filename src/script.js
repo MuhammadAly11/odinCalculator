@@ -1,6 +1,7 @@
 let g_lNum = "";
 let g_rNum = "";
 let g_operator = "";
+let g_isResult = false;
 const input = document.querySelector('input[name="in"]');
 const mods = ["=", "AC"];
 
@@ -51,6 +52,7 @@ function evaluate() {
   clear();
   g_lNum = sum.toString();
   updateDisplay();
+  g_isResult = true;
 }
 
 function handelOperator(operator) {
@@ -63,6 +65,10 @@ let buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
   if (mods.includes(btn.textContent)) return;
   btn.addEventListener("click", () => {
+    if (g_isResult) {
+      g_isResult = false;
+      clear();
+    }
     if (!Number.isInteger(+btn.textContent)) handelOperator(btn.textContent);
     else if (g_operator == "") g_lNum += btn.textContent;
     else g_rNum += btn.textContent;
