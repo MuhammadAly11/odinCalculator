@@ -38,6 +38,10 @@ function updateDisplay() {
 }
 
 function evaluate() {
+  if (g_rNum === "" || g_operator === "" || g_lNum === "") {
+    console.error("operator or number is null");
+    return;
+  }
   let sum = +operate(g_operator, +g_lNum, +g_rNum).toFixed(2);
   clear();
   g_lNum = sum.toString();
